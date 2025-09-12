@@ -3,6 +3,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     [SerializeField] private ArcadeCarController car;
+    [SerializeField] private GameObject otherPlayerMarker;
     [SerializeField] private float maxTurnTime = 15f;
 
     private bool player1InControl = true;
@@ -36,12 +37,16 @@ public class TurnManager : MonoBehaviour
             player1InControl = false;
             UpdatePlayerData(player1Data);
             SetPlayerData(player2Data);
+            otherPlayerMarker.transform.position = player1Data.position;
+            otherPlayerMarker.transform.rotation = player1Data.rotation;
         }
         else
         {
             player1InControl = true;
             UpdatePlayerData(player2Data);
             SetPlayerData(player1Data);
+            otherPlayerMarker.transform.position = player2Data.position;
+            otherPlayerMarker.transform.rotation = player2Data.rotation;
         }
         turnTimer = maxTurnTime;
     }

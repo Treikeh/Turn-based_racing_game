@@ -11,12 +11,14 @@ public class ArcadeCarController : MonoBehaviour
     public float traction = 5f;       // snap-back force to forward
     public LayerMask layerMask;
 
+    private Vector2 stabilityForce;
+
     [HideInInspector] public Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0f, -0.1f, 0); // makes car more stable
+        //rb.centerOfMass = new Vector3(0f, -0.1f, 0f); // makes car more stable
     }
 
     void FixedUpdate()
@@ -49,6 +51,12 @@ public class ArcadeCarController : MonoBehaviour
 
         // Extra stability to avoid fishtailing
         rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, transform.forward * localVel.z, Time.fixedDeltaTime * traction);
+
+
+        //Debug.Log(Vector3.Dot(transform.up, Vector3.forward));
+        //float dotF = Vector3.Dot(transform.up, Vector3.forward);
+        //float dotR = Vector3.Dot(transform.up, Vector3.right);
+        //rb.angularVelocity = new Vector3(0f, 0f, 5f * dotF);
     }
 
     void OnCollisionStay(Collision col)
