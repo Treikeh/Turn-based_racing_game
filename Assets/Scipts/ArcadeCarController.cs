@@ -11,7 +11,7 @@ public class ArcadeCarController : MonoBehaviour
     public float traction = 5f;       // snap-back force to forward
     public LayerMask layerMask;
 
-    private Rigidbody rb;
+    [HideInInspector] public Rigidbody rb;
 
     void Start()
     {
