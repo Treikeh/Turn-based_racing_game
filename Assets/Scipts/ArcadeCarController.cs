@@ -9,6 +9,7 @@ public class ArcadeCarController : MonoBehaviour
     public float steering = 50f;
     public float driftFactor = 0.95f; // lower = more drift
     public float traction = 5f;       // snap-back force to forward
+    public LayerMask layerMask;
 
     private Rigidbody rb;
 
@@ -22,6 +23,11 @@ public class ArcadeCarController : MonoBehaviour
     {
         float moveInput = Input.GetAxis("Vertical");   // W/S or Up/Down
         float turnInput = Input.GetAxis("Horizontal"); // A/D or Left/Right
+
+        if (!Physics.Raycast(transform.position, Vector3.down, 1f, layerMask))
+        {
+            return;
+        }
 
         // Forward acceleration
         if (moveInput != 0)
