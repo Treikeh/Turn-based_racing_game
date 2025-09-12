@@ -6,7 +6,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private float maxTurnTime = 15f;
 
     private bool player1InControl = true;
-    private float turnTimer = 0f;
+    [HideInInspector] public float turnTimer = 0f;
     private PlayerData player1Data = new();
     private PlayerData player2Data = new();
 
