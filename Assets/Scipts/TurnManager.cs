@@ -3,26 +3,25 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    [SerializeField] private Rigidbody car;
+    [SerializeField] private GameObject player1Car;
+    [SerializeField] private GameObject player2Car;
     [SerializeField] private GameObject otherPlayerMarker;
     [SerializeField] private float maxTurnTime = 15f;
 
     private bool player1InControl = true;
     [HideInInspector] public float turnTimer = 0f;
-    private PlayerData player1Data = new();
-    private PlayerData player2Data = new();
 
 
     void Start()
     {
         turnTimer = maxTurnTime;
-        UpdatePlayerData(player1Data);
-        UpdatePlayerData(player2Data);
+        player2Car.SetActive(false);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        // Switch player when timer runs out
         turnTimer -= Time.deltaTime * Time.timeScale;
         if (turnTimer <= 0f)
         {
@@ -37,40 +36,22 @@ public class TurnManager : MonoBehaviour
         if (player1InControl == true)
         {
             player1InControl = false;
-            UpdatePlayerData(player1Data);
-            SetPlayerData(player2Data);
-            otherPlayerMarker.transform.position = player1Data.position;
-            otherPlayerMarker.transform.rotation = player1Data.rotation;
+            player1Car.SetActive(false);
+            player2Car.SetActive(true);
+            otherPlayerMarker.transform.position = player1Car.transform.position;
+            otherPlayerMarker.transform.rotation = player1Car.transform.rotation;
         }
         else
         {
             player1InControl = true;
-            UpdatePlayerData(player2Data);
-            SetPlayerData(player1Data);
-            otherPlayerMarker.transform.position = player2Data.position;
-            otherPlayerMarker.transform.rotation = player2Data.rotation;
+            player2Car.SetActive(false);
+            player1Car.SetActive(true);
+            otherPlayerMarker.transform.position = player2Car.transform.position;
+            otherPlayerMarker.transform.rotation = player2Car.transform.rotation;
         }
         turnTimer = maxTurnTime;
     }
 
-
-    private void SetPlayerData(PlayerData playerData)
-    {
-        car.transform.position = playerData.position;
-        car.transform.rotation = playerData.rotation;
-        car.linearVelocity = playerData.linearVelocity;
-        car.angularVelocity = playerData.angularVelocity;
-    }
-
-
-    private void UpdatePlayerData(PlayerData playerData)
-    {
-        Rigidbody rb = car.GetComponent<Rigidbody>();
-        playerData.linearVelocity = rb.linearVelocity;
-        playerData.angularVelocity = rb.angularVelocity;
-        playerData.position = car.transform.position;
-        playerData.rotation = car.transform.rotation;
-    }
 
     private IEnumerator PauseTimer()
     {
@@ -78,12 +59,4 @@ public class TurnManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         Time.timeScale = 1f;
     }
-}
-
-class PlayerData
-{
-    public Vector3 linearVelocity;
-    public Vector3 angularVelocity;
-    public Vector3 position;
-    public Quaternion rotation;
 }
