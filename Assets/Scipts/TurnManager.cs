@@ -1,8 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    [SerializeField] private ArcadeCarController car;
+    [SerializeField] private Rigidbody car;
     [SerializeField] private GameObject otherPlayerMarker;
     [SerializeField] private float maxTurnTime = 15f;
 
@@ -22,7 +23,7 @@ public class TurnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        turnTimer -= Time.deltaTime;
+        turnTimer -= Time.deltaTime * Time.timeScale;
         if (turnTimer <= 0f)
         {
             SwitchPlayer();
@@ -32,6 +33,7 @@ public class TurnManager : MonoBehaviour
 
     private void SwitchPlayer()
     {
+        StartCoroutine(nameof(PauseTimer));
         if (player1InControl == true)
         {
             player1InControl = false;
@@ -56,8 +58,8 @@ public class TurnManager : MonoBehaviour
     {
         car.transform.position = playerData.position;
         car.transform.rotation = playerData.rotation;
-        car.rb.linearVelocity = playerData.linearVelocity;
-        car.rb.angularVelocity = playerData.angularVelocity;
+        car.linearVelocity = playerData.linearVelocity;
+        car.angularVelocity = playerData.angularVelocity;
     }
 
 
@@ -68,6 +70,13 @@ public class TurnManager : MonoBehaviour
         playerData.angularVelocity = rb.angularVelocity;
         playerData.position = car.transform.position;
         playerData.rotation = car.transform.rotation;
+    }
+
+    private IEnumerator PauseTimer()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 1f;
     }
 }
 
