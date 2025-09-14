@@ -5,8 +5,8 @@ public class CarWheel : MonoBehaviour
     [Header("Suspension")]
     [SerializeField] private bool enableSuspension = true;
     [SerializeField] private float restDist = 1f;
-    [SerializeField] private float springForce = 50f;
-    [SerializeField] private float springDamping = 15f;
+    [SerializeField] private float springForce = 25f;
+    [SerializeField] private float springDamping = 3f;
 
     [Header("Steering")]
     [SerializeField] private bool enableSteering = true;
@@ -15,7 +15,7 @@ public class CarWheel : MonoBehaviour
 
     [Header("Acceleration")]
     [SerializeField] private bool enableAcceleration = true;
-    [SerializeField] private float carTopSpeed = 10f;
+    [SerializeField] private float carTopSpeed = 30f;
     [SerializeField] private float brakeForce = 0.75f;
     [SerializeField] private AnimationCurve powerCurve;
 
