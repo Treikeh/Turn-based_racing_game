@@ -50,7 +50,6 @@ public class Car : MonoBehaviour
             if (wheel.enableSteering)
             {
                 wheel.transform.localRotation = Quaternion.Euler(0f, maxTurnAngle * horizonalInput, 0f);
-                wheel.wheelMesh.localRotation = Quaternion.Euler(0f, maxTurnAngle * horizonalInput, 0f);
             }
         }
     }
