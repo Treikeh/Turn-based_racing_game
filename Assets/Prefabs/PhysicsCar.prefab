@@ -182,14 +182,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 0
-  brakeFactor: 0.1
+  brakeFactor: 0.5
   wheelRadius: 0.25
   wheelMesh: {fileID: 8492910121373104941}
   enableSuspension: 1
-  springForce: 25
-  springDamping: 3
+  springForce: 100
+  springDamping: 6
   enableSidewaysFriction: 1
-  gripFactor: 0.75
+  gripFactor: 0.11
   isBraking: 0
   verticalInput: 0
   restDist: 1
@@ -232,8 +232,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3596357494301583575}
   - component: {fileID: 4105155946522478369}
-  - component: {fileID: 2535845252375059251}
   - component: {fileID: 3072224992947179808}
+  - component: {fileID: 6474377312371215120}
   m_Layer: 0
   m_Name: PhysicsCar
   m_TagString: Untagged
@@ -286,29 +286,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &2535845252375059251
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5658890190500981568}
-  m_Material: {fileID: 13400000, guid: e5b7fe2e261a5bf4892233d945c4a1da, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.66
-  m_Height: 3.5
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &3072224992947179808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,9 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1091d705e4f41ce9ea2b4a312dec08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
-  restDist: 0.65
-  maxTurnAngle: 20
-  topSpeed: 50
+  restDist: 0.35
+  maxTurnAngle: 15
+  topSpeed: 320
   powerCurve:
     serializedVersion: 2
     m_Curve:
@@ -356,6 +333,27 @@ MonoBehaviour:
   - {fileID: 6305776757285043362}
   - {fileID: 3345842433898339867}
   - {fileID: 8465376557103819420}
+--- !u!65 &6474377312371215120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658890190500981568}
+  m_Material: {fileID: 13400000, guid: e5b7fe2e261a5bf4892233d945c4a1da, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.79, y: 0.67, z: 3.22}
+  m_Center: {x: 0, y: 0.44, z: 0.28}
 --- !u!1 &6846344599427959951
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,14 +399,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 1
-  brakeFactor: 0.1
+  brakeFactor: 0.75
   wheelRadius: 0.25
   wheelMesh: {fileID: 3803454861584143028}
   enableSuspension: 1
-  springForce: 25
+  springForce: 50
   springDamping: 3
   enableSidewaysFriction: 1
-  gripFactor: 0.75
+  gripFactor: 0.1
   isBraking: 0
   verticalInput: 0
   restDist: 1
@@ -486,14 +484,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 1
-  brakeFactor: 0.1
+  brakeFactor: 0.75
   wheelRadius: 0.25
   wheelMesh: {fileID: 5740272184038953744}
   enableSuspension: 1
-  springForce: 25
+  springForce: 50
   springDamping: 3
   enableSidewaysFriction: 1
-  gripFactor: 0.75
+  gripFactor: 0.1
   isBraking: 0
   verticalInput: 0
   restDist: 1
@@ -606,14 +604,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 0
-  brakeFactor: 0.1
+  brakeFactor: 0.5
   wheelRadius: 0.25
   wheelMesh: {fileID: 3083464026989053731}
   enableSuspension: 1
-  springForce: 25
-  springDamping: 3
+  springForce: 100
+  springDamping: 6
   enableSidewaysFriction: 1
-  gripFactor: 0.75
+  gripFactor: 0.11
   isBraking: 0
   verticalInput: 0
   restDist: 1
