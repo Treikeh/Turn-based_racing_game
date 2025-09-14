@@ -6,7 +6,7 @@ public class CarWheel : MonoBehaviour
     public bool enableSteering = false;
     [SerializeField] private float brakeFactor = 0.25f;
     [SerializeField] private float wheelRadius = 0.25f;
-    [SerializeField] private Transform wheelMesh;
+    public Transform wheelMesh;
 
 
     [Header("Suspension")]
