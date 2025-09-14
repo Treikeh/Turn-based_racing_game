@@ -1,18 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Car : MonoBehaviour
 {
+    [SerializeField] private float restDist = 0.75f;
     [SerializeField] private float maxTurnAngle = 30f;
-    [SerializeField] private Transform frontLeftWheel;
-    [SerializeField] private Transform frontRightWheel;
+    [SerializeField] private float topSpeed = 50;
+    [SerializeField] private AnimationCurve powerCurve;
+    [SerializeField] private LayerMask gorundLayer;
+    [SerializeField] private List<CarWheel> wheels;
 
+    private bool isBraking;
     private float horizonalInput;
-    [HideInInspector] public Rigidbody rb;
+    private float verticalInput;
+    private Rigidbody rb;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        // Set wheel variables
+        for (int i = 0; i < wheels.Count; i++)
+        {
+            CarWheel wheel = wheels[i];
+            wheel.carRb = rb;
+            wheel.topSpeed = topSpeed;
+            wheel.powerCurve = powerCurve;
+            wheel.restDist = restDist;
+            wheel.groundLayer = gorundLayer;
+        }
     }
 
 
@@ -20,8 +36,21 @@ public class Car : MonoBehaviour
     void Update()
     {
         horizonalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+        isBraking = Input.GetKey(KeyCode.Space);
 
-        frontLeftWheel.localRotation = Quaternion.Euler(0f, maxTurnAngle * horizonalInput, 0f);
-        frontRightWheel.localRotation = Quaternion.Euler(0f, maxTurnAngle * horizonalInput, 0f);
+
+        // Turn wheels
+        for (int i = 0; i < wheels.Count; i++)
+        {
+            CarWheel wheel = wheels[i];
+            wheel.isBraking = isBraking;
+            wheel.verticalInput = verticalInput;
+
+            if (wheel.enableSteering)
+            {
+                wheel.transform.localRotation = Quaternion.Euler(0f, maxTurnAngle * horizonalInput, 0f);
+            }
+        }
     }
 }
