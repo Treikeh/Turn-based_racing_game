@@ -40,7 +40,7 @@ public class CarWheel : MonoBehaviour
         Vector3 worldVel = carRb.GetPointVelocity(transform.position);
 
         // Set mesh position to rayHit position if the wheel is on the ground else set wheel to be at max suspension distance
-        wheelMesh.position = rayDidHit? rayHit.point + (transform.up * wheelRadius) : transform.position + (-transform.up * restDist);
+        wheelMesh.position = rayDidHit? rayHit.point + (transform.up * wheelRadius) : transform.position + (-transform.up * (restDist - wheelRadius));
 
 
         // Suspension
