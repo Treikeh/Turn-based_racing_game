@@ -37,8 +37,6 @@ public class Car : MonoBehaviour
     {
         horizonalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-        isBraking = Input.GetKey(KeyCode.Space);
-
 
         // Turn wheels
         for (int i = 0; i < wheels.Count; i++)

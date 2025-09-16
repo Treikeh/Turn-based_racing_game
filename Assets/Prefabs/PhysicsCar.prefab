@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 0
-  brakeFactor: 0.5
+  brakeFactor: 0.15
   wheelRadius: 0.25
   wheelMesh: {fileID: 7144473311945073973}
   enableSuspension: 1
@@ -500,8 +500,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3596357494301583575}
   - component: {fileID: 4105155946522478369}
-  - component: {fileID: 3072224992947179808}
+  - component: {fileID: 5117326026385220242}
   - component: {fileID: 6474377312371215120}
+  - component: {fileID: 3072224992947179808}
   m_Layer: 0
   m_Name: PhysicsCar
   m_TagString: Untagged
@@ -554,6 +555,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &5117326026385220242
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658890190500981568}
+  m_Material: {fileID: 13400000, guid: e5b7fe2e261a5bf4892233d945c4a1da, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.56
+  m_Height: 3.5
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.66, z: 0.12}
+--- !u!65 &6474377312371215120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658890190500981568}
+  m_Material: {fileID: 13400000, guid: e5b7fe2e261a5bf4892233d945c4a1da, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.79, y: 0.67, z: 3.22}
+  m_Center: {x: 0, y: 0.44, z: 0.28}
 --- !u!114 &3072224992947179808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,27 +646,6 @@ MonoBehaviour:
   - {fileID: 6305776757285043362}
   - {fileID: 3345842433898339867}
   - {fileID: 8465376557103819420}
---- !u!65 &6474377312371215120
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5658890190500981568}
-  m_Material: {fileID: 13400000, guid: e5b7fe2e261a5bf4892233d945c4a1da, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.79, y: 0.67, z: 3.22}
-  m_Center: {x: 0, y: 0.44, z: 0.28}
 --- !u!1 &5889359313465398034
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 1
-  brakeFactor: 0.75
+  brakeFactor: 0.25
   wheelRadius: 0.25
   wheelMesh: {fileID: 6248275871239962551}
   enableSuspension: 1
@@ -843,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 1
-  brakeFactor: 0.75
+  brakeFactor: 0.25
   wheelRadius: 0.25
   wheelMesh: {fileID: 4040011395799817908}
   enableSuspension: 1
@@ -964,7 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   enableSteering: 0
-  brakeFactor: 0.5
+  brakeFactor: 0.15
   wheelRadius: 0.25
   wheelMesh: {fileID: 339966255621498415}
   enableSuspension: 1

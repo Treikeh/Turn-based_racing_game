@@ -83,7 +83,8 @@ public class CarWheel : MonoBehaviour
         // Acceleration
         if (rayDidHit)
         {
-            if (isBraking)
+            float dirDot = Vector3.Dot(carRb.transform.forward, carRb.linearVelocity);
+            if ((dirDot > 0.5f && verticalInput < 0f) || (dirDot < -0.5f && verticalInput > 0f))
             {
                 Vector3 brakeDir = transform.forward;
 

@@ -86,7 +86,7 @@ public class TurnManager : MonoBehaviour
     private IEnumerator PauseTimer()
     {
         Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(1.5f);
         Time.timeScale = 1f;
     }
 }
