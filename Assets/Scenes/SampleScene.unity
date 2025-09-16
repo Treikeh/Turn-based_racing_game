@@ -6826,7 +6826,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 1
+  m_text: 'Player 1
+
+    WASD'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7437,6 +7439,8 @@ MonoBehaviour:
   otherPlayerMarker: {fileID: 447474732}
   maxTurnTime: 10
   trackSpilneContainer: {fileID: 557096479}
+  player1TrackDistance: 0
+  player2TrackDistance: 0
   player1InControl: 1
   turnTimer: 0
 --- !u!4 &1158059538
@@ -8276,6 +8280,10 @@ PrefabInstance:
     - target: {fileID: 5658890190500981568, guid: 05e536388093293a789e5f83de007470, type: 3}
       propertyPath: m_Name
       value: PhysicsCar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658890190500981568, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12264,6 +12272,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3072224992947179808, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: maxTurnAngle
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072224992947179808, guid: 05e536388093293a789e5f83de007470, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[0].time
       value: 0.21921426
       objectReference: {fileID: 0}
@@ -12311,6 +12323,10 @@ PrefabInstance:
       propertyPath: powerCurve.m_Curve.Array.data[1].tangentMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3345842433898339867, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: defaultGripFactor
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3596357494301583575, guid: 05e536388093293a789e5f83de007470, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.843185
@@ -12351,9 +12367,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5639931026340349712, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: enableAccel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639931026340349712, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: enableDrift
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639931026340349712, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: defaultGripFactor
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5658890190500981568, guid: 05e536388093293a789e5f83de007470, type: 3}
       propertyPath: m_Name
       value: PhysicsCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305776757285043362, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: enableAccel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305776757285043362, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: enableDrift
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305776757285043362, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: defaultGripFactor
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465376557103819420, guid: 05e536388093293a789e5f83de007470, type: 3}
+      propertyPath: defaultGripFactor
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
