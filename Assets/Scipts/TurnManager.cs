@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class TurnManager : MonoBehaviour
 {
@@ -7,9 +9,25 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject player2Car;
     [SerializeField] private GameObject otherPlayerMarker;
     [SerializeField] private float maxTurnTime = 15f;
+    [SerializeField] private SplineContainer trackSpilneContainer;
 
-    private bool player1InControl = true;
+    private NativeSpline nativeTrackSpline;
+
+    [HideInInspector] public float player1TrackDistance = 0f;
+    [HideInInspector] public float player2TrackDistance = 0f;
+    [HideInInspector] public bool player1InControl = true;
     [HideInInspector] public float turnTimer = 0f;
+
+
+    private void OnEnable()
+    {
+        nativeTrackSpline = new NativeSpline(trackSpilneContainer.Spline, Unity.Collections.Allocator.Persistent);
+    }
+
+    private void OnDisable()
+    {
+        nativeTrackSpline.Dispose();
+    }
 
 
     void Start()
@@ -26,6 +44,18 @@ public class TurnManager : MonoBehaviour
         if (turnTimer <= 0f)
         {
             SwitchPlayer();
+        }
+
+        float3 point;
+        if (player1InControl)
+        {
+            SplineUtility.GetNearestPoint(nativeTrackSpline, player1Car.transform.position, out point, out float distance);
+            player1TrackDistance = distance;
+        }
+        else
+        {
+            SplineUtility.GetNearestPoint(nativeTrackSpline, player2Car.transform.position, out point, out float distance);
+            player2TrackDistance = distance;
         }
     }
 
